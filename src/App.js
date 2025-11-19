@@ -3,17 +3,24 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import Form  from "./components/Form.jsx"
 import Card from "./components/Card.jsx"
 import {api,apiKey} from "./api/Api.js"
+import { useEffect, useState } from 'react';
 
 
 function App() {
-  
-  const fetchWeather = async () => {
-    const res = await api.get(`/weather?q=Yangon&appid=${apiKey}`)
-    console.log(res.data);
-    
-  }
 
-  fetchWeather();
+  const [data,setData] = useState({})
+  
+const fetchWeather = async () => {
+  
+    const res = await api.get(`/weather?q=Yangon&appid=${apiKey}`);
+    setData(res.data)
+};
+
+useEffect(()=> {
+fetchWeather();
+},[])
+
+
   
   return (
     <>
@@ -23,7 +30,7 @@ function App() {
      <div className='shadow-lg bg-light gap-4'>
       <div className=' text-center mt-3 '>Weather App</div>  
        <Form/>    
-      <Card/>
+      <Card data={data}/>
      </div>
     </div>
     </>

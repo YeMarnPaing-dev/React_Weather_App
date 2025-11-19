@@ -3,14 +3,20 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import Form  from "./components/Form.jsx"
 import Card from "./components/Card.jsx"
 
+
 function App() {
   return (
-    <div className="w-full min-vh-100 d-flex justify-content-center align-items-center">
+    <>
+     
+    <div className="w-full min-vh-100 d-flex justify-content-center align-items-center">   
+      
      <div className='shadow-lg bg-light gap-4'>
+      <div className=' text-center mt-3 '>Weather App</div>  
        <Form/>    
       <Card/>
      </div>
     </div>
+    </>
   );
 }
 

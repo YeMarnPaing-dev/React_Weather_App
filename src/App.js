@@ -7,12 +7,10 @@ import { useEffect, useState } from 'react';
 
 
 function App() {
-
-  const [data,setData] = useState({})
-  
+const [country,setCountry] = useState('Yangon')
+const [data,setData] = useState({})  
 const fetchWeather = async () => {
-  
-    const res = await api.get(`/weather?q=Yangon&appid=${apiKey}`);
+    const res = await api.get(`/weather?q=${country}&appid=${apiKey}`);
     setData(res.data)
 };
 

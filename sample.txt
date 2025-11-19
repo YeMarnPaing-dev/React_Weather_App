@@ -1,0 +1,6 @@
+Resources
+=======
+Api=https://openweathermap.org
+
+icon=npm i react-icons
+boostrap = npm i boostrap

@@ -9,14 +9,19 @@ import { useEffect, useState } from 'react';
 function App() {
 const [country,setCountry] = useState('Yangon')
 const [data,setData] = useState({})  
-const fetchWeather = async () => {
-    const res = await api.get(`/weather?q=${country}&appid=${apiKey}`);
+const fetchWeather = async (country_name) => {
+ 
+  if(country_name != undefined){
+     setCountry(country_name) 
+  }
+  const res = await api.get(`/weather?q=${country}&appid=${apiKey}`);
     setData(res.data)
+ 
 };
 
 useEffect(()=> {
 fetchWeather();
-},[])
+},[country])
 
 
   
@@ -27,7 +32,7 @@ fetchWeather();
       
      <div className='shadow-lg bg-light gap-4'>
       <div className=' text-center mt-3 '>Weather App</div>  
-       <Form/>    
+       <Form fetchWeather={fetchWeather}/>    
       <Card data={data}/>
      </div>
     </div>

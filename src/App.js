@@ -2,9 +2,19 @@ import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import Form  from "./components/Form.jsx"
 import Card from "./components/Card.jsx"
+import {api,apiKey} from "./api/Api.js"
 
 
 function App() {
+  
+  const fetchWeather = async () => {
+    const res = await api.get(`/weather?q=Yangon&appid=${apiKey}`)
+    console.log(res.data);
+    
+  }
+
+  fetchWeather();
+  
   return (
     <>
      

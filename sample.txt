@@ -4,3 +4,7 @@ Api=https://openweathermap.org
 
 icon=npm i react-icons
 boostrap = npm i boostrap
+
+https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+API key = 5c2067f12edcc48c1fa33fcd96c62511

@@ -14,8 +14,16 @@ const fetchWeather = async (country_name) => {
   if(country_name != undefined){
      setCountry(country_name) 
   }
-  const res = await api.get(`/weather?q=${country}&appid=${apiKey}`);
-    setData(res.data)
+
+    
+  
+    try {
+        const res = await api.get(`/weather?q=${country}&appid=${apiKey}`);   
+        setData(res.data)   
+    } catch (error) {
+      console.log("error....");
+            
+    }
  
 };
 

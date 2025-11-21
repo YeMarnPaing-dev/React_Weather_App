@@ -1,13 +1,25 @@
 import React from 'react'
 // import { WiDayCloudy, WiRain } from "react-icons/wi";
+import Clock from 'react-clock';
+import { useState,useEffect } from 'react';
+import 'react-clock/dist/Clock.css';
 
 
 const Card = ({data}) => {
+   const [value, setValue] = useState(new Date());
+    
+  useEffect(() => {
+    const interval = setInterval(() => setValue(new Date()), 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   if(JSON.stringify(data) !== '{}'){
   return (
     <div className='d-flex flex-column align-items-center gap-2 mt-3'>
-        <p>Jun 34 ,2025</p>
+         <Clock value={value} className="my-2" />
         <h2>{data.name},{data.sys.country}</h2>
         <h1> 
           <img src={`http://openweathermap.org//img/w/${data.weather[0].icon}.png`} alt="" />
